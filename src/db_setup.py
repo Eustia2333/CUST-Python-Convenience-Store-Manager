@@ -4,7 +4,7 @@ from pymysql.cursors import DictCursor
 DB_CONFIG = {
     'host': 'localhost',
     'user': 'root',
-    'password': '141596',
+    'password': '数据库密码',
     'charset': 'utf8mb4',
     'autocommit': True
 }
@@ -18,7 +18,7 @@ class DatabaseManager:
         self.cursor = None
 
     def connect(self, use_db=True):
-        """建立数据库连接，开发环境下直接抛出异常以便调试"""
+        """建立数据库连接"""
         if self.conn and self.conn.open:
             self.conn.ping(reconnect=True)
             self.cursor = self.conn.cursor(DictCursor)
